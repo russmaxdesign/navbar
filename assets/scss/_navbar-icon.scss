@@ -1,0 +1,75 @@
+// variables
+
+$navbar-icon-width: 22px;
+$navbar-icon-width-current: -($navbar-icon-width * 2);
+
+
+// icons
+
+.navbar-icon {
+  position: relative;
+  top: 6px;
+  display: inline-block;
+  width: $navbar-icon-width;
+  height: $navbar-icon-width;
+  background-position: 0 0;
+}
+
+a:hover .navbar-icon,
+a:focus .navbar-icon,
+button:hover .navbar-icon,
+button:focus .navbar-icon {
+  background-position: 0 -($navbar-icon-width);
+}
+
+
+// icons on hover
+
+.navbar__current .navbar-icon,
+.secondary-nav__current .navbar-icon {
+  background-position: 0 $navbar-icon-width-current;
+}
+
+
+// individual icons
+
+.navbar-icon--org {
+  margin-right: 5px;
+  background-image: url(../img/icon-org.png);
+}
+
+.navbar-icon--manage-user {
+  background-image: url(../img/icon-manage-user.png);
+}
+
+.navbar-icon--manage-org {
+  background-image: url(../img/icon-manage-org.png);
+}
+
+.navbar-icon--logout {
+  background-image: url(../img/icon-logout.png);
+}
+
+.navbar-icon--dashboard {
+  background-image: url(../img/icon-dashboard.png);
+}
+
+.navbar-icon--feeds {
+  background-image: url(../img/icon-feeds.png);
+}
+
+.navbar-icon--features {
+  background-image: url(../img/icon-features.png);
+}
+
+.navbar-icon--campaigns {
+  background-image: url(../img/icon-campaigns.png);
+}
+
+.navbar-icon--deliveries {
+  background-image: url(../img/icon-deliveries.png);
+}
+
+.navbar-icon--dropdown {
+  background-image: url(../img/icon-dropdown.png);
+}
