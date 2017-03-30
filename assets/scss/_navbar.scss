@@ -1,3 +1,14 @@
+// variables
+
+$gray-darkest: #333;
+$navbar-height: 60px;
+$navbar-max-width: 1050px;
+$navbar-min-width: 270px;
+$navbar-icon-width: 22px;
+$navbar-icon-width-current: -($navbar-icon-width * 2);
+$logo-height: 30px;
+$logo-width: 31px;
+
 // mixins
 
 @mixin clearfix {
@@ -20,14 +31,20 @@
 }
 
 
-// nav
+// hidden
+
+.hidden {
+  @include hidden;
+}
+
+
+// navbar
 
 .navbar {
   @include clearfix;
 
-  background: #333;
-  font-size: 16px;
-  min-width: 280px;
+  background: $gray-darkest;
+  min-width: ($navbar-min-width + 10px);
 }
 
 .navbar ul {
@@ -45,10 +62,10 @@
 .navbar a {
   position: relative;
   display: block;
-  height: 60px;
+  height: $navbar-height;
   padding: 0 10px;
   color: #fff;
-  line-height: 60px;
+  line-height: $navbar-height;
   text-decoration: none;
   &:hover,
   &:focus {
@@ -61,8 +78,8 @@
 // nav inner
 
 .navbar__inner {
-  min-width: 270px;
-  max-width: 1050px;
+  min-width: $navbar-min-width;
+  max-width: $navbar-max-width;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -73,12 +90,13 @@
 .navbar__logo {
   display: block;
   float: left;
-  width: 40px;
-  height: 60px;
-  background-image: url(../img/logo.png);
+  width: $logo-width + 10px;
+  height: $navbar-height;
+  background-image: url(../img/logo.svg);
   background-repeat: no-repeat;
   background-position: 0 50%;
   text-indent: -500em;
+  background-size: $logo-width $logo-height;
 }
 
 
@@ -89,29 +107,30 @@
 }
 
 
-// nav utilities
+// nav management-nav
 
-.utilities {
+.management-nav {
   float: right;
+  font-size: 14px;
 }
 
 
-// utilities
+// management-nav
 
-.utilities__org {
+.management-nav__org {
   position: relative;
   display: block;
   float: left;
-  height: 60px;
-  padding: 0 15px;
+  height: $navbar-height;
+  padding: 0 10px;
   color: #ccc;
-  line-height: 60px;
+  line-height: $navbar-height;
   text-decoration: none;
 }
 
-.utilities__manage-user,
-.utilities__manage-org,
-.utilities__logout {
+.management-nav__manage-user,
+.management-nav__manage-org,
+.management-nav__logout {
   width: 40px;
 }
 
@@ -122,18 +141,25 @@
   position: relative;
   top: 4px;
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: $navbar-icon-width;
+  height: $navbar-icon-width;
   background-position: 0 0;
 }
 
-a:hover .navbar-icon {
-  background-position: 0 -22px;
+a:hover .navbar-icon,
+a:focus .navbar-icon {
+  background-position: 0 -($navbar-icon-width);
 }
 
+
+// icons on hover
+
 .current .navbar-icon {
-  background-position: 0 -44px !important;
+  background-position: 0 $navbar-icon-width-current;
 }
+
+
+// individual icons
 
 .navbar-icon--org {
   margin-right: 5px;
@@ -173,18 +199,6 @@ a:hover .navbar-icon {
 }
 
 
-// content
-
-
-.utilities__content {
-  font-size: 14px;
-}
-
-.hidden-wide {
-  @include hidden;
-}
-
-
 // current
 
 .current {
@@ -206,8 +220,6 @@ a:hover .navbar-icon {
 }
 
 
-
-
 // secondary
 
 .secondary-nav {
@@ -217,10 +229,10 @@ a:hover .navbar-icon {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 20px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
-  background: #333;
+  background: $gray-darkest;
   font-size: 16px;
 }
 
@@ -250,9 +262,8 @@ a:hover .navbar-icon {
   border-right: none;
 }
 
-
-
 .secondary-nav a {
+  position: relative;
   display: block;
   padding: 10px 0 15px;
   color: #fff;
@@ -268,7 +279,7 @@ a:hover .navbar-icon {
 // widths
 
 @media (max-width: 900px) {
-  .utilities__org {
+  .management-nav__org {
     display: none;
   }
 }

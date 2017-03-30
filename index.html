@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Responsive Navbar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -11,52 +12,68 @@
     <h1>Responsive Navbar</h1>
     <p><a href="https://github.com/russmaxdesign/navbar">Github Page</a></p>
 
-    <h2>Examples</h2>
-    <h3>Navbar displaying NO current items</h3>
-    <nav class="navbar">
+    <p>A complex, responsive navbar that includes site utilites, a primary navigation and a secondary navigation that sits at the bottom of the screen for small screen devices.</p>
+    <p>The following should occur:</p>
+    <ul>
+      <li>At wide screen size, the full top bar should be displayed, with all items present.</li>
+      <li>At medium screen size, the current organisation name should be hidden within the top nav bar.</li>
+      <li>At small screen size, all primary items and the current organisation should be hidden within the top nav bar, and a new nav bar should be displayed, fixed to the bottom of the page.</li>
+    </ul>
+    <hr>
+
+    <h2>Example</h2>
+    <nav class="navbar" role="navigation">
       <div class="navbar__inner">
-        <div class="navbar__logo" aria-hidden="true" role="presentation"></div>
+        <div class="navbar__logo">
+          <span class="hidden">Site Name</span>
+        </div>
         <ul class="primary-nav">
-          <li><a href="#">Dashboard</a></li>
+          <li>
+            <a class="current" aria-current="page" href="#">
+              Dashboard
+              <span class="hidden">Current page</span>
+            </a>
+          </li>
           <li><a href="#">Item 1</a></li>
           <li><a href="#">Item 2</a></li>
           <li><a href="#">Item 3</a></li>
           <li><a href="#">Item 4</a></li>
         </ul>
-        <ul class="utilities">
+        <ul class="management-nav">
           <li>
-            <span class="utilities__org">
+            <span class="management-nav__org">
               <span class="navbar-icon navbar-icon--org" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-medium">Company Name</span>
+              <span class="hidden">Current Organisation:</span>
+              <span class="hidden-medium">Weyland Industries</span>
             </span>
           </li>
           <li>
-            <a class="utilities__manage-user" href="#">
+            <a class="management-nav__manage-user" href="#">
               <span class="navbar-icon navbar-icon--manage-user" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Manage My Profile</span>
+              <span class="hidden">Manage My Profile</span>
             </a>
           </li>
           <li>
-            <a class="utilities__manage-org" href="#">
+            <a class="management-nav__manage-org current" aria-current="page" href="#">
               <span class="navbar-icon navbar-icon--manage-org" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Manage My Organisations</span>
+              <span class="hidden">Manage Current Organisation</span>
             </a>
           </li>
           <li>
-            <a class="utilities__logout" href="#">
+            <a class="management-nav__logout" href="#">
               <span class="navbar-icon navbar-icon--logout" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Logout</span>
+              <span class="hidden">Logout</span>
             </a>
           </li>
         </ul>
       </div>
     </nav>
-
     <ul class="secondary-nav">
       <li>
-        <a href="#">
+        <a class="current" aria-current="page" href="#">
           <span class="navbar-icon navbar-icon--dashboard" aria-hidden="true" role="presentation"></span>
           Dash
+          <span class="hidden">Current page</span>
         </a>
       </li>
       <li>
@@ -66,7 +83,7 @@
         </a>
       </li>
       <li>
-        <a class="current" href="#">
+        <a href="#">
           <span class="navbar-icon navbar-icon--features" aria-hidden="true" role="presentation"></span>
           Item 2
         </a>
@@ -84,130 +101,63 @@
         </a>
       </li>
     </ul>
-
-
-    <h3>Navbar displaying ALL possible current items</h3>
-    <nav class="navbar">
-      <div class="navbar__inner">
-        <div class="navbar__logo" aria-hidden="true" role="presentation"></div>
-        <ul class="primary-nav">
-          <li><a class="current" aria-current="true" href="#">Dashboard</a></li>
-          <li><a class="current" aria-current="true" href="#">Item 1</a></li>
-          <li><a class="current" aria-current="true" href="#">Item 2</a></li>
-          <li><a class="current" aria-current="true" href="#">Item 3</a></li>
-          <li><a class="current" aria-current="true" href="#">Item 4</a></li>
-        </ul>
-        <ul class="utilities">
-          <li>
-            <span class="utilities__org">
-              <span class="navbar-icon navbar-icon--org" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-medium">Company Name</span>
-            </span>
-          </li>
-          <li>
-            <a class="utilities__manage-user current" aria-current="true" href="#">
-              <span class="navbar-icon navbar-icon--manage-user" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Manage My Profile</span>
-            </a>
-          </li>
-          <li>
-            <a class="utilities__manage-org current" aria-current="true" href="#">
-              <span class="navbar-icon navbar-icon--manage-org" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Manage My Organisations</span>
-            </a>
-          </li>
-          <li>
-            <a class="utilities__logout" href="#">
-              <span class="navbar-icon navbar-icon--logout" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Logout</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <h3>Navbar for non-admins - no "Manage Organisation" icon option</h3>
-    <nav class="navbar">
-      <div class="navbar__inner">
-        <div class="navbar__logo" aria-hidden="true" role="presentation"></div>
-        <ul class="primary-nav">
-          <li><a class="current" aria-current="true" href="#">Dashboard</a></li>
-          <li><a href="#">Item 1</a></li>
-          <li><a href="#">Item 2</a></li>
-          <li><a href="#">Item 3</a></li>
-          <li><a href="#">Item 4</a></li>
-        </ul>
-        <ul class="utilities">
-          <li>
-            <span class="utilities__org">
-              <span class="navbar-icon navbar-icon--org" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-medium">Company Name</span>
-            </span>
-          </li>
-          <li>
-            <a class="utilities__manage-user" href="#">
-              <span class="navbar-icon navbar-icon--manage-user" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Manage My Profile</span>
-            </a>
-          </li>
-          <li>
-            <a class="utilities__logout" href="#">
-              <span class="navbar-icon navbar-icon--logout" aria-hidden="true" role="presentation"></span>
-              <span class="utilities__content hidden-wide">Logout</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
     <hr>
 
     <h2>Code</h2>
     <figure>
       <figcaption class="markup-heading">Markup</figcaption>
-<pre><code class="language-html">&lt;nav class="navbar"&gt;
+<pre><code class="language-html">&lt;nav class="navbar" role="navigation"&gt;
   &lt;div class="navbar__inner"&gt;
-    &lt;div class="navbar__logo" aria-hidden="true" role="presentation"&gt;&lt;/div&gt;
+    &lt;div class="navbar__logo"&gt;
+      &lt;span class="hidden"&gt;Site Name&lt;/span&gt;
+    &lt;/div&gt;
     &lt;ul class="primary-nav"&gt;
-      &lt;li&gt;&lt;a href="#"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a class="current" aria-current="page" href="#"&gt;
+          Dashboard
+          &lt;span class="hidden"&gt;Current page&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
       &lt;li&gt;&lt;a href="#"&gt;Item 1&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="#"&gt;Item 2&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="#"&gt;Item 3&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href="#"&gt;Item 4&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-    &lt;ul class="utilities"&gt;
+    &lt;ul class="management-nav"&gt;
       &lt;li&gt;
-        &lt;span class="utilities__org"&gt;
-          &lt;span class="navbar-icon navbar-icon--org" aria-hidden="true" role="presentation"&gt;&lt;/span&gt;
-          &lt;span class="utilities__content hidden-medium"&gt;Company Name&lt;/span&gt;
+        &lt;span class="management-nav__org"&gt;
+          &lt;span class="navbar-icon navbar-icon--org"&gt;&lt;/span&gt;
+          &lt;span class="hidden"&gt;Current Organisation:&lt;/span&gt;
+          &lt;span class="hidden-medium"&gt;Weyland Industries&lt;/span&gt;
         &lt;/span&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;a class="utilities__manage-user" href="#"&gt;
+        &lt;a class="management-nav__manage-user" href="#"&gt;
           &lt;span class="navbar-icon navbar-icon--manage-user" aria-hidden="true" role="presentation"&gt;&lt;/span&gt;
-          &lt;span class="utilities__content hidden-wide"&gt;Manage My Profile&lt;/span&gt;
+          &lt;span class="hidden"&gt;Manage My Profile&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;a class="utilities__manage-org" href="#"&gt;
+        &lt;a class="management-nav__manage-org" href="#"&gt;
           &lt;span class="navbar-icon navbar-icon--manage-org" aria-hidden="true" role="presentation"&gt;&lt;/span&gt;
-          &lt;span class="utilities__content hidden-wide"&gt;Manage My Organisations&lt;/span&gt;
+          &lt;span class="hidden"&gt;Manage Current Organisation&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;a class="utilities__logout" href="#"&gt;
+        &lt;a class="management-nav__logout" href="#"&gt;
           &lt;span class="navbar-icon navbar-icon--logout" aria-hidden="true" role="presentation"&gt;&lt;/span&gt;
-          &lt;span class="utilities__content hidden-wide"&gt;Logout&lt;/span&gt;
+          &lt;span class="hidden"&gt;Logout&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
-
 &lt;ul class="secondary-nav"&gt;
   &lt;li&gt;
-    &lt;a href="#"&gt;
+    &lt;a class="current" aria-current="page" href="#"&gt;
       &lt;span class="navbar-icon navbar-icon--dashboard" aria-hidden="true" role="presentation"&gt;&lt;/span&gt;
       Dash
+      &lt;span class="hidden"&gt;Current page&lt;/span&gt;
     &lt;/a&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -217,7 +167,7 @@
     &lt;/a&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;a class="current" href="#"&gt;
+    &lt;a href="#"&gt;
       &lt;span class="navbar-icon navbar-icon--features" aria-hidden="true" role="presentation"&gt;&lt;/span&gt;
       Item 2
     &lt;/a&gt;
