@@ -1,0 +1,78 @@
+// secondary
+
+.secondary-nav {
+  @include clearfix;
+
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: $gray-darkest;
+  font-size: 16px;
+}
+
+.secondary-nav .navbar-icon {
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.secondary-nav li {
+  float: left;
+  width: 20%;
+  border-right: 1px solid #888;
+  font-size: 9px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.secondary-nav li:last-child {
+  border-right: none;
+}
+
+.secondary-nav a {
+  position: relative;
+  display: block;
+  padding: 10px 0 15px;
+  color: #fff;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: #b0d177;
+    background-color: #000;
+  }
+}
+
+
+// current
+
+.secondary-nav__current {
+  /* !important declaration needed to override secondary-nav a color */
+  color: #b0d177 !important;
+}
+
+.secondary-nav__current:after {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 8px solid transparent;
+  border-top: 6px solid #fff;
+  border-bottom: none;
+  border-left: 8px solid transparent;
+  margin-left: -6px;
+  content: '';
+}
+
+
+// widths
+
+@media (min-width: 700px) {
+  .secondary-nav {
+    display: none;
+  }
+}

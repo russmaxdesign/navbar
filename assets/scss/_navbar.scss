@@ -4,38 +4,8 @@ $gray-darkest: #333;
 $navbar-height: 60px;
 $navbar-max-width: 1050px;
 $navbar-min-width: 270px;
-$navbar-icon-width: 22px;
-$navbar-icon-width-current: -($navbar-icon-width * 2);
 $logo-height: 30px;
 $logo-width: 31px;
-
-// mixins
-
-@mixin clearfix {
-  &:after {
-    display: table;
-    clear: both;
-    content: '';
-  }
-}
-
-@mixin hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  width: 1px;
-  height: 1px;
-  border: 0;
-  margin: -1px;
-  padding: 0;
-}
-
-
-// hidden
-
-.hidden {
-  @include hidden;
-}
 
 
 // navbar
@@ -43,14 +13,8 @@ $logo-width: 31px;
 .navbar {
   @include clearfix;
 
-  background: $gray-darkest;
   min-width: ($navbar-min-width + 10px);
-}
-
-.navbar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  background: $gray-darkest;
 }
 
 .navbar li {
@@ -95,27 +59,30 @@ $logo-width: 31px;
   background-image: url(../img/logo.svg);
   background-repeat: no-repeat;
   background-position: 0 50%;
-  text-indent: -500em;
   background-size: $logo-width $logo-height;
+  text-indent: -500em;
 }
 
 
-// nav primary
+// primary-nav
 
 .primary-nav {
   float: left;
-}
-
-
-// nav management-nav
-
-.management-nav {
-  float: right;
-  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 
 // management-nav
+
+.management-nav {
+  float: right;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
 
 .management-nav__org {
   position: relative;
@@ -135,77 +102,14 @@ $logo-width: 31px;
 }
 
 
-// icons
+// navbar__current
 
-.navbar-icon {
-  position: relative;
-  top: 4px;
-  display: inline-block;
-  width: $navbar-icon-width;
-  height: $navbar-icon-width;
-  background-position: 0 0;
-}
-
-a:hover .navbar-icon,
-a:focus .navbar-icon {
-  background-position: 0 -($navbar-icon-width);
-}
-
-
-// icons on hover
-
-.current .navbar-icon {
-  background-position: 0 $navbar-icon-width-current;
-}
-
-
-// individual icons
-
-.navbar-icon--org {
-  margin-right: 5px;
-  background-image: url(../img/icon-org.png);
-}
-
-.navbar-icon--manage-user {
-  background-image: url(../img/icon-manage-user.png);
-}
-
-.navbar-icon--manage-org {
-  background-image: url(../img/icon-manage-org.png);
-}
-
-.navbar-icon--logout {
-  background-image: url(../img/icon-logout.png);
-}
-
-.navbar-icon--dashboard {
-  background-image: url(../img/icon-dashboard.png);
-}
-
-.navbar-icon--feeds {
-  background-image: url(../img/icon-feeds.png);
-}
-
-.navbar-icon--features {
-  background-image: url(../img/icon-features.png);
-}
-
-.navbar-icon--campaigns {
-  background-image: url(../img/icon-campaigns.png);
-}
-
-.navbar-icon--deliveries {
-  background-image: url(../img/icon-deliveries.png);
-}
-
-
-// current
-
-.current {
+.navbar__current {
+  /* !important declaration needed to override navbar a color */
   color: #b0d177 !important;
 }
 
-.current:after {
+.navbar__current:after {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -217,62 +121,6 @@ a:focus .navbar-icon {
   border-left: 8px solid transparent;
   margin-left: -6px;
   content: '';
-}
-
-
-// secondary
-
-.secondary-nav {
-  @include clearfix;
-
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: $gray-darkest;
-  font-size: 16px;
-}
-
-.secondary-nav .navbar-icon {
-  display: block;
-  margin: 0 auto 10px;
-}
-
-.secondary-nav .current:after {
-  top: 0;
-  border-top: 6px solid #fff;
-  border-right: 8px solid transparent;
-  border-bottom: none;
-  border-left: 8px solid transparent;
-}
-
-.secondary-nav li {
-  float: left;
-  width: 20%;
-  border-right: 1px solid #888;
-  font-size: 9px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.secondary-nav li:last-child {
-  border-right: none;
-}
-
-.secondary-nav a {
-  position: relative;
-  display: block;
-  padding: 10px 0 15px;
-  color: #fff;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    color: #b0d177;
-    background-color: #000;
-  }
 }
 
 
@@ -291,11 +139,5 @@ a:focus .navbar-icon {
 
   body {
     padding-bottom: 60px;
-  }
-}
-
-@media (min-width: 700px) {
-  .secondary-nav {
-    display: none;
   }
 }
