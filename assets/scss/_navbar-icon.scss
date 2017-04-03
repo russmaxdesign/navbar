@@ -16,7 +16,9 @@ $navbar-icon-width-current: -($navbar-icon-width * 2);
 }
 
 a:hover .navbar-icon,
-a:focus .navbar-icon {
+a:focus .navbar-icon,
+button:hover .navbar-icon,
+button:focus .navbar-icon {
   background-position: 0 -($navbar-icon-width);
 }
 
@@ -66,4 +68,8 @@ a:focus .navbar-icon {
 
 .navbar-icon--deliveries {
   background-image: url(../img/icon-deliveries.png);
+}
+
+.navbar-icon--dropdown {
+  background-image: url(../img/icon-dropdown.png);
 }

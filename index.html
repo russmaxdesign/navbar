@@ -21,7 +21,7 @@
     </ul>
     <hr>
 
-    <h2>Example</h2>
+    <h2>Example - non-admins</h2>
     <nav class="navbar" role="navigation">
       <div class="navbar__inner">
         <div class="navbar__logo">
@@ -68,6 +68,67 @@
         </ul>
       </div>
     </nav>
+
+    <h2>Example - admins</h2>
+    <nav class="navbar" role="navigation">
+      <div class="navbar__inner">
+        <div class="navbar__logo">
+          <span class="hidden">Site Name</span>
+        </div>
+        <ul class="primary-nav">
+          <li>
+            <a class="navbar__current" aria-current="page" href="#">
+              Dashboard
+              <span class="hidden">Current page</span>
+            </a>
+          </li>
+          <li><a href="#">Item 1</a></li>
+          <li><a href="#">Item 2</a></li>
+          <li><a href="#">Item 3</a></li>
+          <li><a href="#">Item 4</a></li>
+        </ul>
+        <ul class="management-nav">
+          <li>
+            <div class="dropdown open">
+              <button
+                class="management-nav__dropdown"
+                type="button"
+                aria-haspopup="true"
+                aria-label="Current company: Weyland Industries. Use the dropdown menu to switch companies"
+              >
+                <span class="navbar-icon navbar-icon--dropdown" aria-hidden="true" role="presentation"></span>
+                <span class="hidden">Current Organisation:</span>
+                <span class="hidden-medium">Weyland Industries</span>
+              </button>
+              <ul class="dropdown-menu" aria-label="Switch Companies">
+                <li><a href="#"><b><span class="hidden">Current organisation: </span>Weyland Industries</a></b></li>
+                <li><a href="#">Stark Industries</a></li>
+                <li><a href="#">Cyberdyne Systems</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="management-nav__manage-user" href="#">
+              <span class="navbar-icon navbar-icon--manage-user" aria-hidden="true" role="presentation"></span>
+              <span class="hidden">Manage My Profile</span>
+            </a>
+          </li>
+          <li>
+            <a class="management-nav__manage-org navbar__current" aria-current="page" href="#">
+              <span class="navbar-icon navbar-icon--manage-org" aria-hidden="true" role="presentation"></span>
+              <span class="hidden">Manage Current Organisation</span>
+            </a>
+          </li>
+          <li>
+            <a class="management-nav__logout" href="#">
+              <span class="navbar-icon navbar-icon--logout" aria-hidden="true" role="presentation"></span>
+              <span class="hidden">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <ul class="secondary-nav">
       <li>
         <a class="secondary-nav__current" aria-current="page" href="#">
