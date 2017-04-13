@@ -1,0 +1,45 @@
+// variables
+
+$manage-user-width: 122px;
+$manage-org-width: 190px;
+$logout-width: 50px;
+$half-icon-width: 20px;
+
+// aria
+
+.management-nav__manage-user:hover:before,
+.management-nav__manage-user:focus:before,
+.management-nav__manage-org:hover:before,
+.management-nav__manage-org:focus:before,
+.management-nav__logout:hover:before,
+.management-nav__logout:focus:before {
+  position: absolute;
+  z-index: 1010;
+  top: 60px;
+  left: 0;
+  display: block;
+  width: 200px;
+  padding: 10px;
+  content: attr(aria-label);
+  background: #000;
+  line-height: 1;
+  text-align: center;
+}
+
+.management-nav__manage-user:hover:before,
+.management-nav__manage-user:focus:before, {
+  left: -($manage-user-width - $half-icon-width);
+  width: $manage-user-width;
+}
+
+.management-nav__manage-org:hover:before,
+.management-nav__manage-org:focus:before {
+  left: -($manage-org-width - $half-icon-width);
+  width: $manage-org-width;
+}
+
+.management-nav__logout:hover:before,
+.management-nav__logout:focus:before {
+  left: -($logout-width - $half-icon-width);
+  width: $logout-width;
+}

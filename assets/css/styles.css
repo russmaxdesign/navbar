@@ -1059,7 +1059,7 @@ dd {
 
 .navbar-icon {
   position: relative;
-  top: 4px;
+  top: 5px;
   display: inline-block;
   width: 22px;
   height: 22px;
@@ -1105,6 +1105,39 @@ button:focus .navbar-icon {
 
 .navbar-icon--dropdown {
   background-image: url(../img/icon-dropdown.png); }
+
+.management-nav__manage-user:hover:before,
+.management-nav__manage-user:focus:before,
+.management-nav__manage-org:hover:before,
+.management-nav__manage-org:focus:before,
+.management-nav__logout:hover:before,
+.management-nav__logout:focus:before {
+  position: absolute;
+  z-index: 1010;
+  top: 60px;
+  left: 0;
+  display: block;
+  width: 200px;
+  padding: 10px;
+  content: attr(aria-label);
+  background: #000;
+  line-height: 1;
+  text-align: center; }
+
+.management-nav__manage-user:hover:before,
+.management-nav__manage-user:focus:before {
+  left: -102px;
+  width: 122px; }
+
+.management-nav__manage-org:hover:before,
+.management-nav__manage-org:focus:before {
+  left: -170px;
+  width: 190px; }
+
+.management-nav__logout:hover:before,
+.management-nav__logout:focus:before {
+  left: -30px;
+  width: 50px; }
 
 .secondary-nav {
   position: fixed;
