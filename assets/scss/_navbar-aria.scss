@@ -5,7 +5,8 @@ $manage-org-width: 190px;
 $logout-width: 50px;
 $half-icon-width: 20px;
 
-// aria
+
+// aria-popup
 
 .management-nav__manage-user:hover:before,
 .management-nav__manage-user:focus:before,
@@ -27,7 +28,7 @@ $half-icon-width: 20px;
 }
 
 .management-nav__manage-user:hover:before,
-.management-nav__manage-user:focus:before, {
+.management-nav__manage-user:focus:before {
   left: -($manage-user-width - $half-icon-width);
   width: $manage-user-width;
 }
